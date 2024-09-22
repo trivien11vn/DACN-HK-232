@@ -8,11 +8,13 @@ const path = {
     SERVICES: 'service/services',
     PRODUCTS_CATEGORY: 'product/:category',
     PRODUCTS: 'product/products',
+    OUR_PROVIDERS: 'our_providers/our_providers',
     BLOGS: 'blogs',
-    OUR_PROVIDERS: 'our_providers',
+    OUR_PROVIDERS_CATEGORY: 'our_providers/:category',
     FAQS: 'faqs',
     DETAIL_SERVICE__CATEGORY__PID__TITLE: 'service/:category/:sid/:name',
     DETAIL_PRODUCT__CATEGORY__PID__TITLE: 'product/:category/:sid/:name',
+    DETAIL_PROVIDER_ID: 'detail_provider/:prid',
     FINAL_REGISTER: 'final_register/:status',
     RESET_PASSWORD: 'reset_password/:token',
     DETAIL_CART: 'detail_cart',
@@ -22,6 +24,9 @@ const path = {
     BOOKING_DATE_TIME: 'booking_date_time',
 
     SERVICE_PROVIDER_REGISTER: 'sp_register',
+
+    //chat
+    CHAT: 'chat',
 
     //Admin
     ADMIN: 'admin',
@@ -43,6 +48,13 @@ const path = {
     EDIT_POST_DETAIL: 'edit_post_detail',
     VIEW_POST: 'view_post',
 
+    ADD_VOUCHER: 'add_voucher',
+    ADD_SALE_EVENT: 'add_sale_event',
+    MANAGE_VOUCHER: 'manage_voucher',
+    MANAGE_SALE_EVENT: 'manage_sale_event',
+    MANAGE_CHAT: 'manage_chat',
+
+    SETTING: 'setting',
     //User
     USER: 'user',
     PERSONAL: 'personal',

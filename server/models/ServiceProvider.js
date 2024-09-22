@@ -8,16 +8,9 @@ var ProviderServiceSchema = new mongoose.Schema({
         unique: true,
         index: true,
     },
-    province: {
+    province:{
         type: String,
         required: true,
-        index: true,
-    },
-    district: {
-        type: String,
-    },
-    ward: {
-        type: String,
     },
     address: {
         type: String,
@@ -30,7 +23,22 @@ var ProviderServiceSchema = new mongoose.Schema({
     },
     images: {
         type: [],
-    }
+    },
+    latitude: {
+        type: Number,
+        required: true,
+    },
+    longitude: {
+        type: Number,
+        required: true,
+    },
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+    },
+    chatGivenQuestions: [{
+        type: String
+    }]
 },{
     timestamps: true
 });

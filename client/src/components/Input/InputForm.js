@@ -1,12 +1,12 @@
 import React, { memo } from 'react'
 import clsx from 'clsx'
 
-const InputForm = ({label, disabled, register, errors, id, validate, type='text', placeholder, fullWidth, defaultValue, style, readOnly, onInput}) => {
+const InputForm = ({label, labelClassName, disabled, register, errors, id, validate, type='text', placeholder, fullWidth, defaultValue, style, readOnly, require, onInput}) => {
 
     return (
         <div className={clsx('flex flex-col h-[78px] gap-2', style)}>
-            {label && <label className='font-medium' htmlFor={id}>{label}</label>}
-            <input
+            {label && <label className={clsx('font-medium', labelClassName)} htmlFor={id}>{label}{require && <sup className='text-red-500 font-semibold'> *</sup>}</label>}
+            <input 
                 type={type} 
                 id={id}
                 {...register(id, validate)}

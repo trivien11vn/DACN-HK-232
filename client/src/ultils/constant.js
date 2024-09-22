@@ -7,6 +7,7 @@ import { FaMoneyBillTrendUp } from "react-icons/fa6";
 import { TbBrandBooking } from "react-icons/tb";
 import { MdPostAdd } from "react-icons/md";
 import { CiDiscount1 } from "react-icons/ci";
+import { IoIosSettings } from "react-icons/io";
 export const navigation = [
     {
         id: 1,
@@ -314,15 +315,38 @@ export const adminSidebar = [
         text: 'Manage Customer Program',
         submenu:[
             {
-                text: 'Add Customer Program',
-                path: `/${path.ADMIN}/${path.ADD_SERVICE}`
+                text: 'Add Vourcher Code',
+                path: `/${path.ADMIN}/${path.ADD_VOUCHER}`
             },
             {
-                text: 'Manage Customer Program',
-                path: `/${path.ADMIN}/${path.MANAGE_SERVICE}`
-            }
+                text: 'Add Sale Event',
+                path: `/${path.ADMIN}/${path.ADD_SALE_EVENT}`
+            },
+            {
+                text: 'Manage Voucher',
+                path: `/${path.ADMIN}/${path.MANAGE_VOUCHER}`
+            },
+            {
+                text: 'Manage Event',
+                path: `/${path.ADMIN}/${path.MANAGE_SALE_EVENT}`
+            },
+
         ],
         icon: <CiDiscount1 size={20}/>
+    },
+    {
+        id: 11,
+        type: 'single',
+        text: 'Manage Chat',
+        path: `/${path.ADMIN}/${path.MANAGE_CHAT}`,
+        icon: <RiBillLine size={20}/>
+    },
+    {
+        id: 12,
+        type: 'single',
+        text: 'Setting',
+        path: `/${path.ADMIN}/${path.SETTING}`,
+        icon: <IoIosSettings size={20}/>
     },
 ]
 

@@ -138,3 +138,78 @@
     animation: glow 0.2s infinite;
     transform: scale(1.02);
   }
+
+
+  .custom-datepicker .MuiInputBase-root {
+    color: white !important;
+  }
+  
+  .custom-datepicker .MuiFormLabel-root {
+    color: white !important;
+  }
+  
+  .custom-datepicker .MuiInput-underline:before {
+    border-bottom-color: white !important;
+  }
+  
+  .custom-datepicker .MuiInput-underline:hover:not(.Mui-disabled):before {
+    border-bottom-color: white !important;
+  }
+  
+  .custom-datepicker .MuiInput-underline:after {
+    border-bottom-color: white !important;
+  }
+  
+  .custom-datepicker .MuiFormHelperText-root {
+    color: white !important;
+  }
+  
+  .custom-datepicker .MuiSvgIcon-root {
+    color: white !important;
+  }
+  
+  .custom-datepicker .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+    border-color: white !important;
+  }
+  
+  .custom-datepicker .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: white !important;
+  }
+  
+  .custom-datepicker .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: white !important;
+  }
+
+
+  .message_box{
+    z-index: 1000 !important;
+  }
+  
+
+  .emoji-picker-react {
+    background-color: #1a1635 !important;
+    box-shadow: 0 5px 10px #9a86f3;
+    border-color: #9186f3;
+  }
+  
+  .emoji-picker-react .emoji-scroll-wrapper::-webkit-scrollbar {
+    background-color: #1a1635;
+    width: 5px;
+  }
+  
+  .emoji-picker-react .emoji-scroll-wrapper::-webkit-scrollbar-thumb {
+    background-color: #9a86f3;
+  }
+  
+  .emoji-picker-react .emoji-categories button {
+    filter: contrast(0);
+  }
+  
+  .emoji-picker-react .emoji-search {
+    background-color: transparent;
+    border-color: #9186f3;
+  }
+  
+  .emoji-picker-react .emoji-group:before {
+    background-color: #1a1635;
+  }

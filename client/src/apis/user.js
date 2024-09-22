@@ -74,3 +74,14 @@ export const apiRemoveCartProduct = (pid, color) => axios({
     url: `/user/remove_cart_product/${pid}/${color}`,
     method: 'delete',
 })
+
+export const apiGetAllContact = (userId) => axios({
+    url: `/user/getAllContact/${userId}`,
+    method: 'get',
+})
+
+export const apiAddContactToCurrentUser = (data) => axios({
+    url: `/user/add_contact`,
+    method: 'post',
+    data
+})

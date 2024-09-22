@@ -1,7 +1,15 @@
-import React, { memo } from 'react'
+import React, { memo, useEffect } from 'react'
 import clsx from 'clsx'
 
-const Select = ({label, options=[], register, errors, id, validate, style, fullWidth, defaultValue,text}) => {
+const Select = ({label, options=[], register, errors, id, validate, style, fullWidth, defaultValue,text, value}) => {
+  // useEffect(() => {
+  //   if (id && value) {
+  //     const element = document.getElementById(id);
+  //     if (element) {
+  //       element.value = value?.code;
+  //     }
+  //   }
+  // }, [id, value]);
   return (
     <div className={clsx('flex flex-col gap-4', style)}>
       {label&& <label htmlFor={id}>{label}</label>}
@@ -10,13 +18,12 @@ const Select = ({label, options=[], register, errors, id, validate, style, fullW
         fullWidth && 'w-full', style)} 
         id={id} 
         {...register(id, validate)}
-        defaultValue={defaultValue}
+        value={value?.code}
         >
         <option value=''>{text||`----CHOOSE----`}</option>
         {options?.map(el => (
-          <option value={el?.code}>{el?.value}</option>
-        )
-        )}
+          <option key={el.code} value={el.code}>{el.value}</option>
+        ))}
       </select>
       {errors[id] && <small className='text-xs text-red-500'>{errors[id]?.message}</small>}
     </div>

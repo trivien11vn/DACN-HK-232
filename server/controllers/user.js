@@ -138,7 +138,7 @@ const getOneUser = asyncHandler(async(req, res)=>{
         path: 'cart_service',
         populate:{
             path: 'service',
-            select: 'name price duration'
+            select: 'name duration'
         },
     }).populate({
         path: 'cart_service',
@@ -473,9 +473,9 @@ const updateUserAddress = asyncHandler(async (req, res) => {
 // update cart_service
 const updateCartService = asyncHandler(async (req, res) => {
     const {_id} = req.user;
-    const {service, provider, staff, time, date, duration} = req.body;
+    const {service, provider, staff, time, date, duration, price} = req.body;
     
-    if (!service || !provider || !staff || !time || !date || !duration) {
+    if (!service || !provider || !staff || !time || !date || !duration || !price) {
         throw new Error("Missing input");
     } else {
         const user = await User.findById(_id).select('cart_service');
@@ -486,7 +486,7 @@ const updateCartService = asyncHandler(async (req, res) => {
 
         try {
             // Thêm một phần tử mới vào mảng 'cart'
-            response = await User.findByIdAndUpdate(_id, {$push: {cart_service: {service, provider, staff, time, date, duration}}}, {new: true});
+            response = await User.findByIdAndUpdate(_id, {$push: {cart_service: {service, provider, staff, time, date, duration, price}}}, {new: true});
         } catch (error) {
             // Xử lý lỗi nếu có
             return res.status(500).json({ success: false, mes: "Something went wrong" });
@@ -586,6 +586,30 @@ const removeProductFromCart = asyncHandler(async (req, res) => {
     
 })
 
+const getAllContact = async(req,res,next) => {
+    try{
+        const users = await User.find({ _id: { $ne: req.params.userId } }).populate('provider_id').exec();
+        return res.json(users)
+    }
+    catch(err){
+        next(err)
+    }
+}
+
+const addContact = asyncHandler(async (req, res) => {
+    const {uid, ucid} = req.body;
+    if (!uid || !ucid) {
+        throw new Error('Missing Input!');
+    }
+    const user = await User.findByIdAndUpdate(uid, { $push: { chat_users: ucid } }, {new: true});
+
+    return res.status(200).json({
+        success: user ? true : false,
+        mes: user ? 'Contact added successfully' : "Something went wrong",
+        contact: user
+    })
+});
+
 module.exports = {
     register,
     login,
@@ -605,5 +629,7 @@ module.exports = {
     createUsers,
     updateWishlist,
     getAllCustomers,
-    removeProductFromCart
+    removeProductFromCart,
+    getAllContact,
+    addContact
 }
